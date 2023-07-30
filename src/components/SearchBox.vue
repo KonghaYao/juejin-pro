@@ -4,7 +4,7 @@
       class="py-2 px-4 outline-none rounded-lg bg-gray-100 w-full"
       v-model="model"
       type="text"
-      placeholder="请输入搜索关键字"
+      placeholder="请输入搜索关键字 逗号分隔"
       @keydown.enter="() => emits('search')"
     />
     <button

@@ -30,12 +30,18 @@ export const API = {
 
             .select("*");
         if (params.searchText) {
-            req.ilike("title", `%${params.searchText}%`);
+            req.ilikeAllOf(
+                "title",
+                params.searchText
+                    .split(/[,|，]/g)
+                    .filter((i) => i)
+                    .map((i) => `%${i.trim()}%`)
+            );
         }
         const { data, error } = await req
             .limit(25)
             .order("view_count", { ascending: false });
-        // .ilike("column", "%前端%");
+
         if (error) throw error;
         console.log(data);
         return data as {

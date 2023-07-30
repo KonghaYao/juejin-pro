@@ -37,17 +37,21 @@ const handleSearch = () => {
       >
         <h3 class="font-bold">
           {{ data.title }}
+          <span class="float-right">{{ data.original_author }}</span>
         </h3>
 
         <p class="text-sm font-thin py-2">
           {{ data.brief_content }}
         </p>
         <div>
-          👀 {{ data.view_count }} ⭐{{ data.collect_count }} 💬{{ data.comment_count }}
+          👀 {{ data.view_count }} ⭐{{ data.collect_count }} 💬{{
+            data.comment_count
+          }}
+          ✍️{{ new Date(data.mtime).toLocaleDateString() }}
         </div>
       </a>
     </ul>
-    <div v-if="isLoading">加载数据中</div>
+    <div v-if="isLoading" class="flex-1">加载数据中</div>
   </section>
 </template>
 
