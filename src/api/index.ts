@@ -30,7 +30,7 @@ export const API = {
 
             .select("*");
         if (params.searchText) {
-            req.contains("title", params.searchText);
+            req.ilike("title", `%${params.searchText}%`);
         }
         const { data, error } = await req
             .limit(25)
