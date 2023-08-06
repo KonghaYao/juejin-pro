@@ -15,20 +15,22 @@ const resultChains = computed(() => {
 
 <template>
   <section>
-    <h1 class="pb-8">掘金标签搜索页面</h1>
+    <h1 class="pb-8 text-center">掘金标签搜索页面</h1>
 
     <ul v-if="state && resultChains" class="flex flex-wrap gap-4">
       <li
         v-for="data in resultChains"
-        class="bg-green-600 text-white p-2 rounded-lg cursor-pointer"
+        class="bg-green-600 text-white p-2 text-sm rounded-lg cursor-pointer"
         :style="{
           backgroundColor: data.color,
         }"
       >
-        {{ data.tag_name }}
-        <sup>
-          {{ data.post_article_count }}
-        </sup>
+        <router-link :to="{ query: { tag_id: data.tag_id }, path: '/articles' }">
+          {{ data.tag_name }}
+          <sup>
+            {{ data.post_article_count }}
+          </sup>
+        </router-link>
       </li>
     </ul>
     <div v-if="isLoading">加载数据中</div>

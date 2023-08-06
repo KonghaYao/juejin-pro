@@ -1,14 +1,14 @@
 <template>
   <div class="py-4 flex gap-4">
     <input
-      class="py-2 px-4 outline-none rounded-lg bg-gray-100 w-full"
+      class="py-2 px-4 outline-none rounded-lg bg-gray-100 w-full border-none"
       v-model="model"
       type="text"
       placeholder="请输入搜索关键字 逗号分隔"
       @keydown.enter="() => emits('search')"
     />
     <button
-      class="bg-red-600 text-white outline-none flex-none"
+      class="bg-red-600 text-white outline-none flex-none rounded-lg border-none"
       @click="() => emits('search')"
     >
       搜索

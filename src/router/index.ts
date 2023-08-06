@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
+    { path: "/users", component: () => import("../view/Users.vue") },
     { path: "/articles", component: () => import("../view/Article.vue") },
     { path: "/tags", component: () => import("../view/TagPage.vue") },
     { path: "/", component: () => import("../view/Home.vue") },
